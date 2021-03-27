@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Course</title>
+</head>
+
+<body>
+    <h1>git notes</h1>
+    <p>
+        Для начала выбрал урок на youtube - https://www.youtube.com/watch?v=zZBiln_2FhM
+        Скачал и установил:
+        <ul>
+            <li><a href="http://git-scm.com">http://git-scm.com</a> (версию для windows)</li>
+            <li><a href="https://code.visualstudio.com">https://code.visualstudio.com</a> (для Visual Studio Code)</li>
+            <li><a href="http://cygwin.com">http://cygwin.com</a> (для mintty и терминала unix)</li>
+            <li><a href="https://github.com">https://github.com</a> (гитхаб для публикации)</li>
+            <li><a href="https://www.octotree.io">https://www.octotree.io</a> - расширение для хрома - добавляет навигацию по репозиторию на github</li>
+            <li><a href="https://about.gitlab.com/pricing/">https://about.gitlab.com/pricing/</a> аналог гитхаба</li>
+            <li><a href="https://bitbucket.org">https://bitbucket.org</a> аналог гитхаба</li>
+        </ul>
+    </p>
+    <h2>Выученные команды:</h2>
+    <ol>
+        <li><b>git --version</b> узнать версию гита</li>
+        <li><b>git --help</b> справка</li>
+        <li><b>git init</b> создание папок гита (тут у меня запросили данные имя и почты)</li>
+        <li><b>git status</b> узнать статус</li>
+        <li><b>git add _NAME FILE OR /FOLDER_</b> добавить файлы/папку в отслеживаемые</li>
+        <li><b>git rm --cached _NAME FILE OR /FOLDER_</b> удалить из отслеживания</li>
+        <li><b>git add .</b> добавить всё не включенное</li>
+        <li><b>git commit -m "Mark message"</b></li>
+        <li><b>git branch</b> просмотреть все ветки</li>
+        <li><b>git branch _NAME_</b> создать ветку</li>
+        <li><b>git branch -D _NAME_</b> удалить ветку</li>
+        <li><b>git checkout _NAME_</b> переключиться на ветку</li>
+        <li><b>git checkout -b _NAME_</b> создать ветку и сразу на неё переключиться</li>
+        <li><b>git merge _NAME BRANCH_</b> слить текущую ветку с NAME BRANCH</li>
+        <li><b>git git config --global user.name "NAME"</b> указать или узнать имя</li>
+        <li><b>git git config --global user.email "EMAIL"</b> указать или узнать email</li>
+        <li><b>git remote add origin https://github.com/jsondozzy/git.git</b> добавим созданный на гитхабе репозиторий</li>
+        <li><b>git push -u origin master</b> загрузим локальную ветку на github!</li>
+    </ol>
+    <h2>Детали:</h2>
+    <ol>
+        <li><b>Создать файл .gitignore</b> (сделать git add .gitignore) и прописать в него исключаемые файлы и папки</li>
+    </ol>
+</body>
+
+</html>
