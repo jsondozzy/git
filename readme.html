@@ -6,48 +6,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Course</title>
+    <style>
+    code {
+        padding: 1px 4px 1px 4px;
+        background: black;
+        color: #c0c0c0;
+        font-size: 1.5em;
+    }
+
+    code:before {
+        content: "$ ";
+    }
+
+    em {
+        background-color: gray;
+    }
+    </style>
 </head>
 
 <body>
     <h1>git notes</h1>
-    <p>
-        Для начала выбрал урок на youtube - https://www.youtube.com/watch?v=zZBiln_2FhM
-        Скачал и установил:
+    <h2>
+        Урок на youtube - <a href="https://www.youtube.com/watch?v=zZBiln_2FhM">https://www.youtube.com/watch?v=zZBiln_2FhM</a></h2>
+    <p>Скачал и установил:</p>
+    <ul>
+        <li><a href="http://git-scm.com">http://git-scm.com</a> (версию для windows)</li>
+        <li><a href="https://code.visualstudio.com">https://code.visualstudio.com</a> (для Visual Studio Code)</li>
+        <li><a href="http://cygwin.com">http://cygwin.com</a> (для mintty и терминала unix)</li>
+        <li><a href="https://github.com">https://github.com</a> (гитхаб для публикации)</li>
+        <li><a href="https://www.octotree.io">https://www.octotree.io</a> - расширение для хрома - добавляет навигацию по репозиторию на github</li>
+        <li><a href="https://about.gitlab.com/pricing/">https://about.gitlab.com/pricing/</a> аналог гитхаба</li>
+        <li><a href="https://bitbucket.org">https://bitbucket.org</a> аналог гитхаба</li>
+    </ul>
+    <h3>Выученные команды:</h3>
+    <ol>
+        <li><code>git --version</code> узнать версию гита</li>
+        <li><code>git --help</code> справка</li>
+        <li><code>git init</code> создание папок гита (тут у меня запросили данные имя и почты)</li>
+        <li><code>git status</code> узнать статус</li>
+        <li><code>git add _NAME FILE OR /FOLDER_</code> добавить файлы/папку в отслеживаемые</li>
+        <li><code>git rm --cached _NAME FILE OR /FOLDER_</code> удалить из отслеживания</li>
+        <li><code>git add .</code> добавить всё не включенное</li>
+        <li><code>git commit -m "Mark message"</code></li>
+        <li><code>git branch</code> просмотреть все ветки</li>
+        <li><code>git branch _NAME_</code> создать ветку</li>
+        <li><code>git branch -D _NAME_</code> удалить ветку</li>
+        <li><code>git checkout _NAME_</code> переключиться на ветку</li>
+        <li><code>git checkout -b _NAME_</code> создать ветку и сразу на неё переключиться</li>
+        <li><code>git merge _NAME BRANCH_</code> слить текущую ветку с NAME BRANCH</li>
+        <li><code>git config --global user.name "NAME"</code> указать или узнать имя</li>
+        <li><code>git config --global user.email "EMAIL"</code> указать или узнать email</li>
+        <li><code>git remote add origin https://github.com/jsondozzy/git.git</code> добавим созданный на гитхабе репозиторий</li>
+        <li><code>git push -u origin master</code> загрузим локальную ветку на github!</li>
+    </ol>
+    <h3>Детали:</h3>
+    <ol>
+        <li><em>Создать файл .gitignore</em> (сделать git add .gitignore) и прописать в него исключаемые файлы и папки</li>
+    </ol>
+    <h3>Вопросы:</h3>
+    <ol>
+        <li>Как поменять мессадж в последнем коммите (или другом коммите)?</li>
+        <li>Как откатить последние изменение полностью?</li>
+        <li>Как перейти к нужному изменению в нужной ветке.</li>
+        <li>Добавить удаленный репозиторий в каждую папку свой?</li>
+        <li>Как переключать пользователей?</li>
+        <li>Как установить git на сервер?</li>
+        <li>Как скачать изменения к себе?</li>
+    </ol>
+    <h2>Урок на youtube <a href="https://www.youtube.com/watch?v=SEvR78OhGtw&t=742s">https://www.youtube.com/watch?v=SEvR78OhGtw&t=742s</a></h2>
+    <p>Скачал и установил</p>
+    <ul>
+        <li>vi</li>
+        <li>kdiff3</li>
+        <li><a href="https://www.sublimemerge.com/download">Sublime Merge</a></li>
+    </ul>
+    <h3>Выученные команды:</h3>
+    <ol>
+        <li><code>git config --list --show-origin</code> - посмотреть все настройки и где хранятся (system global local)</li>
+        <li><code>git config --global core.editor emacs</code> - установка редактора по умолчанию</li>
+        <li><code>git config --global init.defaultBranch main</code> - установка имени ветки по умолчанию</li>
+        <li><code>git status -s</code> - укороченный вид (?? - Новые неотслеживаемые файлы, A - добавленные в отслеживаемые, М - отредактированные файлы )</li>
+        <li><code>cat .gitignore</code> просмотреть файл. Синтаксис:<br><em>*.a</em> # Исключить все файлы с расширением .a <br><em>!lib.a</em> # Но отслеживать файл lib.a даже если он подпадает под исключение выше <br><em>/TODO</em> # Исключить файл TODO в корневом каталоге, но не файл в subdir/TODO <br><em>build/</em> # Игнорировать все файлы в каталоге build/ <br><em>doc/*.txt</em> # Игнорировать файл doc/notes.txt, но не файл doc/server/arch.txt <br><em>doc/**/*.txt</em> # Игнорировать все .txt файлы в каталоге doc/<br>https://github.com/github/gitignore - разные, готовые файлы .gitignore</li>
+        <li><code>git diff</code> показывает вам непосредственно добавленные и удалённые строки — патч как он есть</li>
+        <li><code>git diff --staged</code> Эта команда сравнивает ваши проиндексированные изменения с последним коммитом (<mark>--staged и --cached синонимы</mark>):</li>
+        <li><code>git difftool -t kdiff3</code> - визуализация отличий</li>
+    </ol>
+    <h3>Детали:</h3>
+    <p>изменён (modified), индексирован (staged) и зафиксирован (committed):
         <ul>
-            <li><a href="http://git-scm.com">http://git-scm.com</a> (версию для windows)</li>
-            <li><a href="https://code.visualstudio.com">https://code.visualstudio.com</a> (для Visual Studio Code)</li>
-            <li><a href="http://cygwin.com">http://cygwin.com</a> (для mintty и терминала unix)</li>
-            <li><a href="https://github.com">https://github.com</a> (гитхаб для публикации)</li>
-            <li><a href="https://www.octotree.io">https://www.octotree.io</a> - расширение для хрома - добавляет навигацию по репозиторию на github</li>
-            <li><a href="https://about.gitlab.com/pricing/">https://about.gitlab.com/pricing/</a> аналог гитхаба</li>
-            <li><a href="https://bitbucket.org">https://bitbucket.org</a> аналог гитхаба</li>
+            <li>К изменённым относятся файлы, которые поменялись, но ещё не были зафиксированы.</li>
+            <li>Индексированый — это изменённый файл в его текущей версии, отмеченный для включения в следующий коммит.</li>
+            <li>Зафиксированный значит, что файл уже сохранён в вашей локальной базе.</li>
         </ul>
     </p>
-    <h2>Выученные команды:</h2>
-    <ol>
-        <li><b>git --version</b> узнать версию гита</li>
-        <li><b>git --help</b> справка</li>
-        <li><b>git init</b> создание папок гита (тут у меня запросили данные имя и почты)</li>
-        <li><b>git status</b> узнать статус</li>
-        <li><b>git add _NAME FILE OR /FOLDER_</b> добавить файлы/папку в отслеживаемые</li>
-        <li><b>git rm --cached _NAME FILE OR /FOLDER_</b> удалить из отслеживания</li>
-        <li><b>git add .</b> добавить всё не включенное</li>
-        <li><b>git commit -m "Mark message"</b></li>
-        <li><b>git branch</b> просмотреть все ветки</li>
-        <li><b>git branch _NAME_</b> создать ветку</li>
-        <li><b>git branch -D _NAME_</b> удалить ветку</li>
-        <li><b>git checkout _NAME_</b> переключиться на ветку</li>
-        <li><b>git checkout -b _NAME_</b> создать ветку и сразу на неё переключиться</li>
-        <li><b>git merge _NAME BRANCH_</b> слить текущую ветку с NAME BRANCH</li>
-        <li><b>git config --global user.name "NAME"</b> указать или узнать имя</li>
-        <li><b>git config --global user.email "EMAIL"</b> указать или узнать email</li>
-        <li><b>git remote add origin https://github.com/jsondozzy/git.git</b> добавим созданный на гитхабе репозиторий</li>
-        <li><b>git push -u origin master</b> загрузим локальную ветку на github!</li>
-    </ol>
-    <h2>Детали:</h2>
-    <ol>
-        <li><b>Создать файл .gitignore</b> (сделать git add .gitignore) и прописать в него исключаемые файлы и папки</li>
-    </ol>
+    <ul>
+        <li><code>git config --global user.name</code> - для всех работ конкретного юзера, есть <mark>--system</mark> (для всех пользователей системы и всех репозиториев) и <mark>--local</mark> (для конкретного репозитория в конкретной папке). Если для каких-то отдельных проектов вы хотите указать другое имя или электронную почту, можно выполнить эту же команду без параметра --global в каталоге с нужным проектом.</li>
+        <li>Команды (можно объединять команды git в скрипты), как правило, называют служебными (<em>«plumbing»</em> — трубопровод, сантехника), а ориентированные на пользователя называют пользовательскими (<em>«porcelain»</em> — фарфор). Из статьи <a href="https://git-scm.com/book/ru/v2/Git-%D0%B8%D0%B7%D0%BD%D1%83%D1%82%D1%80%D0%B8-%D0%A1%D0%B0%D0%BD%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0-%D0%B8-%D0%A4%D0%B0%D1%80%D1%84%D0%BE%D1%80#ch10-git-internals">гит изнутри</a></li>
+        <li><code>git commit -a -m "New commit with index auto"</code> - позволяет не делать <code>git add fileName</code></li>
+        <li><code>git rm PROJECTS.md</code> После следующего коммита файл исчезнет и больше не будет отслеживаться.</li>
+        <li><code>git rm --cached README</code> - удалить файл из индекса, оставив его при этом в рабочем каталоге. Перестать отслеживать изменения в README. Это особенно полезно, если вы забыли добавить что-то в файл .gitignore (например логи добавили ошибочно). <code>git rm</code> можно передавать файлы, каталоги или шаблоны. <code>git rm log/\*.log</code> - слеш, т.к. используется свой обработчик имён, удалит все логи в каталоге лог.</li>
+        <li><code>git mv file_from file_to</code> перемещение файла. Эквивалентно <code>mv README.md README</code> <code>git rm README.md</code> <code>git add README</code>
+        </li>
+        <li><code>git log</code> <code>git log -p OR --patch -2</code> - вывести два лога с патчем (детально про разницу). Сокращенная статистика <mark>-- stat</mark>. Полный <a href="https://git-scm.com/book/ru/v2/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-Git-%D0%9F%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B8%D1%82%D0%BE%D0%B2">список опций и вариаций команды лог</a></li>
+        <li><code>git commit -m 'Initial commit'</code> <code>git add forgotten_file</code> <code>git commit --amend</code> -добавит изменения в последний коммит (в нашем случае добавит файл)</li>
+        <li><code>git restore --staged CONTRIBUTING.md</code> - для исключения из индекса, а если надо и изменения отменить тогда <code>git restore CONTRIBUTING.md</code></li>
+        <li><code>git remote -v</code> - просмотр добавленных репозиториев</li>
+        <li><code>git fetch [remote-name]</code> - Получение изменений из удалённого репозитория</li>
+        <li><code>git pull </code> - автоматически получить изменения из удалённой ветки и слить их со своей текущей<br>Если хотите использовать поведение Git по умолчанию (простое смещение вперёд если возможно — иначе создание коммита слияния): <code>git config --global pull.rebase "false"</code><br>Если хотите использовать перебазирование при получении изменений: <code>git config --global pull.rebase "true"</code></li>
+        <li><code>git push [remote-name] [branch-name]</code> отправить вашу ветку master на сервер origin. Эта команда срабатывает только в случае, если вы клонировали с сервера, на котором у вас есть права на запись, и если никто другой с тех пор не выполнял команду <em>push</em></li>
+        <li><code>git remote show [remote]</code> - получить побольше информации об одном из удалённых репозиториев</li>
+        <li><code>git remote rename pb paul</code> - переименовать pb в paul</li>
+        <li><code>git remote remove paul</code> - удалить удаленный репозиторий — вы сменили сервер или больше не используете определённое зеркало, или кто-то перестал вносить изменения. При удалении ссылки на удалённый репозиторий все отслеживаемые ветки и настройки, связанные с этим репозиторием, так же будут удалены.</li>
+    </ul>
+    <p>Git использует два основных типа тегов: легковесные и аннотированные.</p>
+    <ul>
+        <li><code>git tag</code> - Просмотр списка меток (Для отображение тегов согласно шаблону требуются параметры -l или --list = <code>git tag -l "v1.8.5*"</code> )</li>
+        <li><code>git tag -a v1.4 -m "my version 1.4"</code> - создание аннотированной метки <code>git show</code> - посмотреть данные тега вместе с коммитом</li>
+        <li><code>git tag v1.4-lw</code> - создание легковесной метки, это контрольная сумма коммита, сохранённая в файл — больше никакой информации не хранится</li>
+        <li>Создать метку к уже существующему коммиту <code>git log --pretty=oneline</code> + <code>git tag -a v1.2 9fceb02 -m "Message of tag"</code> (9fceb02 - контрольная сумма коммита по первой команде или часть его)</li>
+        <li><code>git push origin [tagName]</code> - отправить метку - т.к. они явно не отправляются. Отправить все <code>git push origin --tags</code></li>
+        <li>Удаление меток. Локально <code>git tag -d v1.4-lw</code>. На сервере затереть пустым <code>git push origin :refs/tags/v1.4-lw</code>. На сервере <code>git push origin --delete [tagName]</code> </li>
+    </ul>
 </body>
 
 </html>
